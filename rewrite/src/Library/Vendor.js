@@ -6,15 +6,6 @@ import { hash, strlen, charat, slice } from "../Utility.js";
  * @param {number} length
  * @return {string}
  */
-export function animation(value, length, uuid) {
-	return;
-}
-
-/**
- * @param {string} value
- * @param {number} length
- * @return {string}
- */
 export function vendor(value, length) {
 	switch (hash(value, 4, length)) {
 		// animation, animation-(delay|direction|duration|fill-mode|iteration-count|name|play-state|timing-function)
@@ -33,7 +24,7 @@ export function vendor(value, length) {
 		case 6868:
 		case 4215:
 		case 7669:
-			return [](WEBKIT + value + ";") + value;
+			return WEBKIT + value + ";" + value;
 		// box-decoration-break, appearance, user-select, flex, transform, hyphens
 		case 4029:
 		case 6373:

@@ -1,6 +1,6 @@
-export var COMMENT = "comm";
-export var DECLARATION = "decl";
-export var RULE = "rule";
+export var COMMENT = 0;
+export var DECLARATION = 1;
+export var RULE = 2;
 
 export var IMPORT = "@import";
 export var CHARSET = "@charset";

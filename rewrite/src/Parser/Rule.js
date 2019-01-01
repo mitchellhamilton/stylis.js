@@ -30,9 +30,21 @@ export function rule(
 		var i = 0, j = offset - 1, k = "", l = sizeof(parents), m = 0;
 		i < length;
 		++i
-	)
-		for (k = substr(value, j + 1, (j = points[i])), m = 0; m < l; ++m)
-			if ((k = trim(parents[m] + " " + k))) push(props, k);
+	) {
+		for (k = substr(value, j + 1, (j = points[i])), m = 0; m < l; ++m) {
+			let newSelector;
+			if (k.indexOf("&") !== -1) {
+				newSelector = k.replace("&", parents[m]);
+			} else if (k.indexOf(":") === 0) {
+				newSelector = parents[m] + k;
+			} else {
+				newSelector = parents[m] + " " + k;
+			}
+			if ((k = trim(newSelector))) {
+				push(props, k);
+			}
+		}
+	}
 
 	return push(
 		stack,
