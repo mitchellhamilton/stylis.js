@@ -1,24 +1,28 @@
-import pkg from '../package.json'
+import pkg from "../package.json";
 
-function onwarn (warning, warn) {
+function onwarn(warning, warn) {
 	switch (warning.code) {
-		case 'CIRCULAR_DEPENDENCY':
-			return
+		case "CIRCULAR_DEPENDENCY":
+			return;
 		default:
-			warn(warning)
+			warn(warning);
 	}
 }
 
 export default [
 	{
-		context: 'this',
+		context: "this",
 		onwarn: onwarn,
 		input: pkg.main,
 		output: [
 			{
-				file: 'dist/stylis.es.js',
-				format: 'es'
+				file: "dist/stylis.es.js",
+				format: "es"
+			},
+			{
+				file: "dist/stylis.cjs.js",
+				format: "cjs"
 			}
 		]
 	}
-]
+];

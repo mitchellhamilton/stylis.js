@@ -12,7 +12,7 @@ import { vendor } from "./Library/Vendor.js";
  * @param {Array<Object>} children
  * @return {string}
  */
-function stringifyChildren(children) {
+function stringifyNodes(children) {
 	let ret = "";
 	for (let i = 0; i < children.length; i++) {
 		ret += stringify(children[i]);
@@ -28,11 +28,11 @@ export function stringify(node) {
 	switch (node.type) {
 		case DECLARATION: {
 			let val = node.props + ":" + node.children;
-			return vendor(val, val.length) + ";";
+			return vendor(val, node.props.length) + ";";
 		}
 		case RULE: {
 			let selector = node.props.join(",");
-			let children = stringifyChildren(node.children);
+			let children = stringifyNodes(node.children);
 			if (children === "") {
 				return "";
 			}
@@ -41,8 +41,8 @@ export function stringify(node) {
 		case KEYFRAMES:
 		case MEDIA:
 		case SUPPORTS: {
-			let selector = node.type + node.props.join(" and ");
-			let children = stringifyChildren(node.children);
+			let selector = node.type + " " + node.props.join(" and ");
+			let children = stringifyNodes(node.children);
 			if (children === "") {
 				return "";
 			}

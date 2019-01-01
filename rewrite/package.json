@@ -35,7 +35,9 @@
 		"start": "rollup --config ./scripts/build.config.js --watch"
 	},
 	"dependencies": {
+		"@emotion/stylis": "^0.8.3",
 		"jest": "^23.6.0",
-		"parcel": "^1.11.0"
+		"parcel": "^1.11.0",
+		"stylis-rule-sheet": "^0.0.10"
 	}
 }

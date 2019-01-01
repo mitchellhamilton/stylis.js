@@ -1,6 +1,10 @@
 import { compile as parse } from "./src/Compile.js";
 import { stringify } from "./src/Stringify.js";
 
+export { vendor } from "./src/Library/Vendor.js";
+
+export { hash } from "./src/Utility.js";
+
 /**
  * @param {string} selector
  * @param {string} styles
