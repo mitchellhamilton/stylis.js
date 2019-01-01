@@ -1,3 +1,1 @@
-export function stringify (node) {
-
-}
+export function stringify(node) {}

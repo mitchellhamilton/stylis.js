@@ -1,5 +1,5 @@
-import {DECLARATION} from '../Constant.js'
-import {strlen, substr, push, node, src} from '../Utility.js'
+import { DECLARATION } from "../Constant.js";
+import { strlen, substr, push, node, src } from "../Utility.js";
 
 /**
  * @param {Object} read
@@ -8,6 +8,15 @@ import {strlen, substr, push, node, src} from '../Utility.js'
  * @param {number} length
  * @return {number}
  */
-export function declaration (read, stack, value, length) {
-	return push(stack, node(DECLARATION, substr(value, 0, length), substr(value, length + 1, strlen(value)), value, src(read)))
+export function declaration(read, stack, value, length) {
+	return push(
+		stack,
+		node(
+			DECLARATION,
+			substr(value, 0, length),
+			substr(value, length + 1, strlen(value)),
+			value,
+			src(read)
+		)
+	);
 }
